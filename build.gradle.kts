@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("io.qameta.allure:allure-gradle:2.6.0")
+        classpath("io.qameta.allure:allure-gradle:2.8.1")
     }
 }
 
@@ -28,10 +28,10 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.12.1"
+    version = "2.13.9"
 
     useJUnit5 {
-        version = "2.12.1"
+        version = "2.13.9"
     }
 
 }
@@ -55,17 +55,18 @@ tasks.withType(Test::class) {
 
 
 repositories {
-    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
+//    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
     mavenCentral()
     mavenLocal()
 }
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.12.1")
-    compile("org.junit.jupiter:junit-jupiter-api:5.3.0")
-    compile("org.junit.jupiter:junit-jupiter-engine:5.3.0")
-    compile("org.junit.jupiter:junit-jupiter-params:5.3.0")
+    compile("io.qameta.allure:allure-java-commons:2.13.9")
+    compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
 
-    testCompile("io.qameta.allure:allure-ee-junit-platform:3.28.2")
+//    testCompile("io.qameta.allure:allure-ee-junit-platform:3.28.2")
+    testCompile("io.qameta.allure:allure-junit-platform:2.13.9")
 }

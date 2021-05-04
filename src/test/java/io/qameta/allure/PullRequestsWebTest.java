@@ -46,7 +46,7 @@ public class PullRequestsWebTest {
     @Microservice("Repository")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress")})
-    @DisplayName("Deleting pull request for authorized user")
+    @DisplayName("Deleting pull request by authorized user")
     public void shouldClosePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
         steps.createPullRequestFromBranch(BRANCH);

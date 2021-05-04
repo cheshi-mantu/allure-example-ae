@@ -33,7 +33,7 @@ public class IssuesWebTest {
     @Story("Create new issue")
     @JiraIssues({@JiraIssue("AE-2")})
     @Tags({@Tag("web"), @Tag("critical")})
-    @DisplayName("Creating new issue authorized user")
+    @DisplayName("Creating new issue by authorized user")
     public void shouldCreateIssue() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);
@@ -59,7 +59,7 @@ public class IssuesWebTest {
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-1")})
-    @DisplayName("Closing new issue for authorized user")
+    @DisplayName("Closing existing issue by authorized user")
     public void shouldCloseIssue() {
         steps.openIssuesPage(OWNER, REPO);
         steps.createIssueWithTitle(ISSUE_TITLE);

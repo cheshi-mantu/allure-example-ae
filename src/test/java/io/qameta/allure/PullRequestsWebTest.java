@@ -33,7 +33,7 @@ public class PullRequestsWebTest {
     @Story("Create new pull request")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
-    @DisplayName("Creating new issue for authorized user")
+    @DisplayName("Creating new pull request by authorized user")
     public void shouldCreatePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
         steps.createPullRequestFromBranch(BRANCH);
@@ -46,7 +46,7 @@ public class PullRequestsWebTest {
     @Microservice("Repository")
     @Story("Close existing pull request")
     @Tags({@Tag("web"), @Tag("regress")})
-    @DisplayName("Deleting existing issue for authorized user")
+    @DisplayName("Deleting pull request for authorized user")
     public void shouldClosePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);
         steps.createPullRequestFromBranch(BRANCH);

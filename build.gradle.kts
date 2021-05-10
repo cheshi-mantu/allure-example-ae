@@ -55,14 +55,14 @@ tasks.withType(Test::class) {
 
 
 repositories {
-//    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
+    maven(url = "https://dl.bintray.com/qameta/maven-unstable/")
     mavenCentral()
     mavenLocal()
 }
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.13.10")
+    compile("io.qameta.allure:allure-java-commons:2.13.9")
 
     compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")

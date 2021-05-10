@@ -28,10 +28,10 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.13.10"
+    version = "2.13.9"
 
     useJUnit5 {
-        version = "2.13.10"
+        version = "2.13.9"
     }
 
 }

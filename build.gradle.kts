@@ -53,7 +53,6 @@ tasks.withType(Test::class) {
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 }
 
-
 repositories {
     mavenCentral()
     mavenLocal()

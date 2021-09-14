@@ -1,15 +1,19 @@
 package io.qameta.allure;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 
 public class AuthenticationTests {
     @Test
+    @AllureId("36091")
     @DisplayName("Successful auth with username and password")
-    @Story("Auth with email and password")
+    @Tag("smoke")
+    @Story("Authentication via username and password")
     @Feature("Authentication")
+    @Microservice("Authentication")
     @Owner("egorivanov")
     public void successfulAuthUserPassword() {
             step("Open log-in page ", ()->{

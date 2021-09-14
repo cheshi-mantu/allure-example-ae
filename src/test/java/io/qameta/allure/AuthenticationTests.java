@@ -7,7 +7,6 @@ import static io.qameta.allure.Allure.step;
 
 public class AuthenticationTests {
     @Test
-    @AllureId("36055")
     @DisplayName("Successful auth with username and password")
     @Story("Auth with email and password")
     @Feature("Authentication")

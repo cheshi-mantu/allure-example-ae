@@ -31,7 +31,7 @@ configure<AllureExtension> {
     version = "2.14.0"
 
     useJUnit5 {
-        version = "2.14.0"
+        version = "2.15.0"
     }
 
 }
@@ -60,11 +60,11 @@ repositories {
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.14.0")
+    compile("io.qameta.allure:allure-java-commons:2.15.0")
 
     compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
 
-    testCompile("io.qameta.allure:allure-junit-platform:2.14.0")
+    testCompile("io.qameta.allure:allure-junit-platform:2.15.0")
 }

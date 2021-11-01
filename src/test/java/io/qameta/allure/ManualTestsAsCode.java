@@ -12,7 +12,6 @@ import static io.qameta.allure.Allure.step;
 public class ManualTestsAsCode {
 
     @Test
-    @AllureId("25846")
     @DisplayName("Successful auth with valid email and valid password")
     @Tags({@Tag("critical"), @Tag("regress"), @Tag("smoke"), @Tag("regular")})
     @Story("Authentication with email and password")

@@ -11,7 +11,7 @@ buildscript {
 }
 
 tasks.existing(Wrapper::class) {
-    gradleVersion = "4.10.2"
+    gradleVersion = "5.1.1"
     distributionType = Wrapper.DistributionType.ALL
 }
 
@@ -28,10 +28,10 @@ apply(plugin = "io.qameta.allure")
 configure<AllureExtension> {
     autoconfigure = true
     aspectjweaver = true
-    version = "2.14.0"
+    version = "2.16.0"
 
     useJUnit5 {
-        version = "2.14.0"
+        version = "2.16.0"
     }
 
 }
@@ -60,11 +60,11 @@ repositories {
 
 dependencies {
     compile("commons-io:commons-io:2.6")
-    compile("io.qameta.allure:allure-java-commons:2.14.0")
+    compile("io.qameta.allure:allure-java-commons:2.16.0")
 
     compile("org.junit.jupiter:junit-jupiter-api:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-engine:5.7.0")
     compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
 
-    testCompile("io.qameta.allure:allure-junit-platform:2.14.0")
+    testCompile("io.qameta.allure:allure-junit-platform:2.16.0")
 }

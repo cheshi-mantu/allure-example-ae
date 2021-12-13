@@ -8,3 +8,4 @@ build
 
 # allure framework files
 .allure/
+/testplan.json

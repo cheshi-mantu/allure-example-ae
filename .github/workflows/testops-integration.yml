@@ -46,13 +46,12 @@ jobs:
             return `${context.repo.owner}/${context.repo.repo}/actions/workflows/${result.data.workflow_id}`
       - name: Download allurectl
         run: |
-          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O ./allurectl
+          wget https://github.com/allure-framework/allurectl/releases/download/1.20.3/allurectl_linux_386 -O ./allurectl
           chmod +x ./allurectl
       - name: Prepare TestPlan
         run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
-        #run: ./allurectl watch -- ./gradlew clean test
-        run: ./gradlew clean test
+        run: ./allurectl watch -- ./gradlew clean test
       - name: Get environments
         run: printenv | grep ALLURE_
       - name: List results

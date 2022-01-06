@@ -1,0 +1,60 @@
+name: Java CI
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      TEST_ENDPOINT:
+        description: "Endpoint for tests"
+        required: true
+        default: https://dev.github.com
+      TEST_BROWSER:
+        description: "Browser for tests"
+        required: true
+        default: chrome
+      ALLURE_JOB_RUN_ID:
+        description: "Inner parameter for Allure TestOps"
+        required: false
+
+env:
+  ALLURE_ENDPOINT: ${{ secrets.ALLURE_ENDPOINT }}
+  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
+  ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
+  ALLURE_TESTPLAN_PATH: "./testplan.json"
+  ALLURE_RESULTS: "allure-results"
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+
+jobs:
+  all-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - uses: actions/github-script@v4
+        id: allure-job-uid
+        with:
+          result-encoding: string
+          script: |
+            const result = await github.actions.getWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+            });
+            return `${context.repo.owner}/${context.repo.repo}/actions/workflows/${result.data.workflow_id}`
+      - name: Download allurectl
+        run: |
+          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O ./allurectl
+          chmod +x ./allurectl
+      - name: Prepare TestPlan
+        run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
+      - name: Build with Gradle
+        run: ./allurectl watch -- ./gradlew clean test
+      - name: Get environments
+        run: printenv | grep ALLURE_
+        env:
+          ALLURE_JOB_UID: ${{steps.allure-job-uid.outputs.result}}
+          TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
+          TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}

@@ -51,7 +51,8 @@ jobs:
       - name: Prepare TestPlan
         run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
-        run: ./allurectl watch -- ./gradlew clean test
+        #run: ./allurectl watch -- ./gradlew clean test
+        run: ./gradlew clean test
       - name: Get environments
         run: printenv | grep ALLURE_
       - name: List results

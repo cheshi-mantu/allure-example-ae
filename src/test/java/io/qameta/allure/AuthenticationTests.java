@@ -8,8 +8,7 @@ import static io.qameta.allure.Allure.step;
 
 public class AuthenticationTests {
     @Test
-//    @AllureId("91363")
-    @AllureId("-1")
+    @AllureId("91363")
     @DisplayName("Successful auth with username and password")
     @Tag("smoke")
     @Feature("Authentication")

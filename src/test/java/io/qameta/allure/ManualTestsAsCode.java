@@ -15,7 +15,7 @@ public class ManualTestsAsCode {
     @DisplayName("Successful auth with valid email and valid password")
     @Tags({@Tag("critical"), @Tag("regress"), @Tag("smoke"), @Tag("regular")})
     @Story("Authentication with email and password")
-    @Owner("demo")
+    @Owner("egorivanov")
     @Manual
     @Feature("Authentication")
     public void successfulAuthUsernamePassword () {

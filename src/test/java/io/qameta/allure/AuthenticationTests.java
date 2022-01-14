@@ -8,12 +8,12 @@ import static io.qameta.allure.Allure.step;
 
 public class AuthenticationTests {
     @Test
-    @AllureId("36091")
+    @AllureId("91363")
     @DisplayName("Successful auth with username and password")
     @Tag("smoke")
-    @Story("Authentication via username and password")
     @Feature("Authentication")
-    @Microservice("Authentication")
+    @Story("Authentication via username and password")
+    @Microservice("uaa")
     @Owner("egorivanov")
     public void successfulAuthUserPassword() {
             step("Open log-in page ", ()->{

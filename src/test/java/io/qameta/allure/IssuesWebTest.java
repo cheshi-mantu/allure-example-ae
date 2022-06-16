@@ -44,7 +44,7 @@ public class IssuesWebTest {
     @TM4J("AE-T4")
     @Microservice("Repository")
     @Story("Create new issue")
-    @Tags({@Tag("web"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("regress"),@Tag("second-pipe")})
     @JiraIssues({@JiraIssue("AE-8")})
     @DisplayName("Adding note to advertisement")
     public void shouldAddLabelToIssue() {
@@ -57,7 +57,7 @@ public class IssuesWebTest {
     @TM4J("AE-T5")
     @Microservice("Repository")
     @Story("Close existing issue")
-    @Tags({@Tag("web"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("regress"),@Tag("second-pipe")})
     @JiraIssues({@JiraIssue("AE-8")})
     @DisplayName("Closing existing issue by authorized user")
     public void shouldCloseIssue() {

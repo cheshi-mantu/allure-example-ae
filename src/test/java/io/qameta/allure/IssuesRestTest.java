@@ -20,14 +20,10 @@ public class IssuesRestTest {
     @TM4J("AE-T1")
     @Story("Create new issue")
     @Microservice("Billing")
-    @Tags({@Tag("api"), @Tag("smoke")})
+    @Tags({@Tag("api"), @Tag("smoke"),@Tag("second-pipe")})
     @ParameterizedTest(name = "Create issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldCreateUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
-
+    public void shouldCreateUserNote(@Param(value = "Title") String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.shouldSeeIssueWithTitle(OWNER, REPO, title);
     }
@@ -35,15 +31,11 @@ public class IssuesRestTest {
     @TM4J("AE-T2")
     @Story("Close existing issue")
     @Microservice("Repository")
-    @Tags({@Tag("api"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("regress"), @Tag("second-pipe")})
     @JiraIssues({@JiraIssue("AE-1")})
     @ParameterizedTest(name = "Close issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldDeleteUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
-
+    public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);
     }

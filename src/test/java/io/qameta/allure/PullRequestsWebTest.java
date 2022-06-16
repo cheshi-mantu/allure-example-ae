@@ -31,7 +31,7 @@ public class PullRequestsWebTest {
     @TM4J("AE-T6")
     @Microservice("Billing")
     @Story("Create new pull request")
-    @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
+    @Tags({@Tag("second-pipe"), @Tag("regress"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("AE-1"), @JiraIssue("AE-2")})
     @DisplayName("Creating new pull request by authorized user")
     public void shouldCreatePullRequest() {
@@ -45,7 +45,7 @@ public class PullRequestsWebTest {
     @JiraIssue("AE-2")
     @Microservice("Repository")
     @Story("Close existing pull request")
-    @Tags({@Tag("web"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("regress"),@Tag("second-pipe")})
     @DisplayName("Deleting pull request by authorized user")
     public void shouldClosePullRequest() {
         steps.openPullRequestsPage(OWNER, REPO);

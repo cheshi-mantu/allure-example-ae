@@ -35,7 +35,7 @@ public class ManualTestsAsCode {
         step("Check user is authenticated", () -> {
             step("User name is to be in the header section", ()->{
                 FileInputStream pngFile = new FileInputStream("src/test/resources/png/add-group2project.png");
-                Allure.addAttachment( "file.png", pngFile);;
+                Allure.addAttachment( "file.png", pngFile);
                 //screenshot to be attached
             });
         });

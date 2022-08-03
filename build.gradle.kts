@@ -1,4 +1,5 @@
 import io.qameta.allure.gradle.AllureExtension
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 buildscript {
     repositories {
@@ -51,6 +52,9 @@ tasks.withType(Test::class) {
     systemProperty("junit.jupiter.execution.parallel.config.strategy", "dynamic")
 
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+    testLogging {
+        setEvents(listOf(TestLogEvent.FAILED, TestLogEvent.SKIPPED, TestLogEvent.PASSED))
+    }
 }
 
 repositories {

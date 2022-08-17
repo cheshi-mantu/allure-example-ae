@@ -51,7 +51,9 @@ jobs:
       - name: Prepare TestPlan
         run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
-        run: ./allurectl watch -- ./gradlew clean test || printenv | grep TEST_
+        run: | 
+          ./allurectl watch -- ./gradlew clean test
+          printenv | grep TEST_
         env:
           ALLURE_JOB_UID: ${{steps.allure-job-uid.outputs.result}}
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}

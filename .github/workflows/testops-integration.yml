@@ -60,7 +60,5 @@ jobs:
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get environments
         run: printenv | grep ALLURE_
-      - name: Get environments for ENV-vars
-        run: printenv | grep TEST_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}

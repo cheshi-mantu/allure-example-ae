@@ -1,0 +1,37 @@
+# Java Gradle CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2.1
+
+parameters:
+  ALLURE_JOB_RUN_ID:
+    type: string
+    default: ""
+  BROWSER:
+    type: string
+    default: "firefox"
+  TESTING_HOST:
+    type: string
+    default: "https://qa.somehost.xyz"
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/repo
+    environment:
+      ALLURE_JOB_RUN_ID: << pipeline.parameters.ALLURE_JOB_RUN_ID >>
+      ALLURE_TESTPLAN_PATH: ./testplan.json
+      ALLURE_RESULTS: allure-results
+      TESTING_HOST: << pipeline.parameters.TESTING_HOST >>
+      BROWSER: << pipeline.parameters.BROWSER >>
+      ALLURE_LAUNCH_TAGS: "regular, circle"
+    steps:
+      - checkout
+      - run: printenv
+      - run: |
+          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
+          chmod +x ./allurectl
+      - run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
+      - run: ./allurectl watch -- ./gradlew test -Pbrowser=${BROWSER} -Ptest_host=${TESTING_HOST}

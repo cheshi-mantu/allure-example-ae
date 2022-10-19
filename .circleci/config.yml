@@ -23,7 +23,7 @@ jobs:
     environment:
       ALLURE_JOB_RUN_ID: << pipeline.parameters.ALLURE_JOB_RUN_ID >>
       ALLURE_TESTPLAN_PATH: ./testplan.json
-      ALLURE_RESULTS: allure-results
+      ALLURE_RESULTS: build/allure-results
       TESTING_HOST: << pipeline.parameters.TESTING_HOST >>
       BROWSER: << pipeline.parameters.BROWSER >>
       ALLURE_LAUNCH_TAGS: "regular, circle"

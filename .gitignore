@@ -5,6 +5,10 @@
 # Gradle
 .gradle
 build
+bin/
 
 # allure framework files
 .allure/
+
+#vscode
+.vscode/

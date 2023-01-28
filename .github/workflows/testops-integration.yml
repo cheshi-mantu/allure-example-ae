@@ -59,6 +59,8 @@ jobs:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get environments
-        run: printenv | grep ALLURE_
+        run: | 
+          printenv | grep ALLURE_
+          printenv | grep GITHUB_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}

@@ -13,7 +13,7 @@ parameters:
     default: "firefox"
   TESTING_HOST:
     type: string
-    default: "https://qa.somehost.xyz"
+    default: "https://some.circleci.host"
 
 jobs:
   build:

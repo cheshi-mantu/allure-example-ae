@@ -20,6 +20,7 @@ on:
         required: false
 
 env:
+  ALLURE_ENDPOINT: ${{ env.ALLURE_ENDPOINT}}
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
   ALLURE_TESTPLAN_PATH: "./testplan.json"
@@ -55,7 +56,7 @@ jobs:
       - name: Build with Gradle
         run: | 
           ./allurectl watch -- ./gradlew clean test
-          echo $(./allurectl job-run env) >> $GITHUB_ENV
+          export $(./allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
         env:

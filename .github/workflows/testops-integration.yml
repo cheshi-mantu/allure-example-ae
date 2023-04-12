@@ -56,7 +56,7 @@ jobs:
       - name: Build with Gradle
         run: | 
           ./allurectl watch -- ./gradlew clean test
-          export $(./allurectl job-run env)
+          echo $(./allurectl job-run env) >> $GITHUB_ENV
           printenv | grep TEST_
           printenv | grep ALLURE_
         env:

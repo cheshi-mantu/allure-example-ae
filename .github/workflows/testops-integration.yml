@@ -55,15 +55,18 @@ jobs:
         run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
         run: | 
-          ./allurectl watch -- ./gradlew clean test || export $(./allurectl job-run env)
+          ./allurectl watch -- ./gradlew clean test
+          export $(./allurectl job-run env)
           printenv | grep TEST_
         env:
           ALLURE_JOB_UID: ${{steps.allure-job-uid.outputs.result}}
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-      - name: Get environments
+      - name: Get ALLURE_ environments
         run: | 
           printenv | grep ALLURE_
+      - name: Get GITHUB_ environments
+        run: | 
           printenv | grep GITHUB_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}

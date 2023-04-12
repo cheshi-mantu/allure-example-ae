@@ -11,3 +11,4 @@ build
 .allure/
 /testplan.json
 /.vscode/
+.DS_Store

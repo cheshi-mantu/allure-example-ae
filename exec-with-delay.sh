@@ -1,2 +1,2 @@
-sleep 10
+# sleep 10
 ./gradlew clean test

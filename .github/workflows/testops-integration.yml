@@ -13,14 +13,14 @@ on:
         required: true
         default: chrome
       ALLURE_JOB_RUN_ID:
-        description: "Inner parameter for Allure TestOps"
+        description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
         required: false
       ALLURE_USERNAME:
-        description: "Allure service parameter, leave blank"
+        description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
 
 env:
-  ALLURE_ENDPOINT: https://testing.allure.aws.qameta.in
+  ALLURE_ENDPOINT: https://qameta.testops.cloud
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
   ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
   ALLURE_TESTPLAN_PATH: "./testplan.json"

@@ -20,6 +20,7 @@ public class IssuesRestTest {
     @TM4J("AE-T1")
     @Story("Create new issue")
     @Microservice("Billing")
+    @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("api"), @Tag("smoke")})
     @ParameterizedTest(name = "Create issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})

@@ -36,31 +36,21 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - uses: actions/github-script@v4
-        id: allure-job-uid
+      - name: install and configure allurectl
+        uses: allure-framework/setup-allurectl@v1
         with:
-          result-encoding: string
-          script: |
-            const result = await github.actions.getWorkflowRun({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: context.runId,
-            });
-            return `${context.repo.owner}/${context.repo.repo}/actions/workflows/${result.data.workflow_id}`
-      - name: Download allurectl
-        run: |
-          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
-          chmod +x ./allurectl
+          allure-endpoint: https://testing.allure.aws.qameta.in
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
       - name: Prepare TestPlan
-        run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
+        run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
         run: | 
-          ./allurectl watch -- ./gradlew clean test
-          export $(./allurectl job-run env)
+          allurectl watch -- ./gradlew clean test
+          export $(allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
         env:
-          ALLURE_JOB_UID: ${{steps.allure-job-uid.outputs.result}}
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get ALLURE_ environments

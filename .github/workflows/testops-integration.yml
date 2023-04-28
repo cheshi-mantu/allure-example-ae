@@ -6,11 +6,11 @@ on:
     inputs:
       TEST_ENDPOINT:
         description: "Endpoint for tests"
-        required: false
+        required: true
         default: https://dev.github.com
       TEST_BROWSER:
         description: "Browser for tests"
-        required: false
+        required: true
         default: chrome
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."

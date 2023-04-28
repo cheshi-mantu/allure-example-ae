@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      "master"
+  push:
+    branches:
+      "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+      - uses: allure-framework/setup-allurectl@v1
+        allure-endpoint: https://testing.allure.aws.qameta.in
+        allure-token: ${{ secrets.ALLURE_TOKEN }}
+        allure-project-id: 2677
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - run: allurectl watch -- ./gradlew clean test
+        env:
+          ALLURE_RESULTS: build/allure-results

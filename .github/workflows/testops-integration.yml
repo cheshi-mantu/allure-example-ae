@@ -6,11 +6,11 @@ on:
     inputs:
       TEST_ENDPOINT:
         description: "Endpoint for tests"
-        required: true
+        required: false
         default: https://dev.github.com
       TEST_BROWSER:
         description: "Browser for tests"
-        required: true
+        required: false
         default: chrome
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
@@ -47,7 +47,7 @@ jobs:
       - name: Build with Gradle
         run: | 
           allurectl watch -- ./gradlew clean test
-          export $(allurectl job-run env)
+          export $( allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_
         env:

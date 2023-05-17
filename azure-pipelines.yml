@@ -10,12 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - task: Bash@3
-#   displayName: 'Install pytest'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       pip install pytest allure-pytest
 
 - task: Bash@3
   displayName: 'chmod for gradlew'
@@ -25,7 +19,7 @@ steps:
       chmod +x gradlew
 
 - task: Bash@3
-  displayName: 'Install allurectl'
+  displayName: 'Donwload and prepare allurectl'
   inputs:
     targetType: 'inline'
     script: |
@@ -34,12 +28,11 @@ steps:
 
 - script: |
     ./allurectl job-run plan --output-file $(ALLURE_TESTPLAN_PATH)
-    # if test -f $(ALLURE_TESTPLAN_PATH); then cat $(ALLURE_TESTPLAN_PATH); fi
     ./allurectl watch -- ./gradlew clean test
     printenv | grep "ALLURE_"
     printenv | grep "AZURE_"
 
-  displayName: 'running pytest tests'
+  displayName: 'running java junit5 tests by gradle'
   env:
     ALLURE_ENDPOINT: $(ALLURE_ENDPOINT)
     ALLURE_PROJECT_ID: $(ALLURE_PROJECT_ID)

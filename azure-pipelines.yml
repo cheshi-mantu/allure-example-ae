@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: gradle:6.9-jdk11
+  vmImage: ubuntu-latest
 
 steps:
 # - task: Bash@3

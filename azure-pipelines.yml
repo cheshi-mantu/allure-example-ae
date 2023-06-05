@@ -1,0 +1,46 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: Bash@3
+  displayName: 'chmod for gradlew'
+  inputs:
+    targetType: 'inline'
+    script: |
+      chmod +x gradlew
+
+- task: Bash@3
+  displayName: 'Donwload and prepare allurectl'
+  inputs:
+    targetType: 'inline'
+    script: |
+      wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
+      chmod +x ./allurectl
+
+- script: |
+    ./allurectl job-run plan --output-file $(ALLURE_TESTPLAN_PATH)
+    ./allurectl watch -- ./gradlew clean test
+    printenv | grep "ALLURE_"
+    printenv | grep "AZURE_"
+
+  displayName: 'running java junit5 tests by gradle'
+  env:
+    ALLURE_ENDPOINT: $(ALLURE_ENDPOINT)
+    ALLURE_PROJECT_ID: $(ALLURE_PROJECT_ID)
+    ALLURE_TOKEN: $(ALLURE_TOKEN)
+    ALLURE_TESTPLAN_PATH: $(ALLURE_TESTPLAN_PATH)
+    ALLURE_RESULTS: $(ALLURE_RESULTS)
+    ALLURE_LAUNCH_NAME: "$(Build.DefinitionName)-$(Build.BuildNumber)"
+    TEST_BRANCH: $(Build.SourceBranchName)
+    ALLURE_LAUNCH_TAGS: "$(Build.SourceBranchName), azure"
+    AZURE_BROWSER: $(AZURE_BROWSER)
+    AZURE_HOST: $(AZURE_HOST)

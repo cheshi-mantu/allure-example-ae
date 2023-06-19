@@ -42,15 +42,11 @@ jobs:
           allure-endpoint: https://testing.allure.aws.qameta.in
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
-      - name: download allurectl
-        run: |
-          wget https://github.com/allure-framework/allurectl/releases/download/2.11.0/allurectl_linux_amd64 -O ./allurectl
-          chmod +x ./allurectl
       - name: Prepare TestPlan
-        run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
+        run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
         run: |
-          ./allurectl watch -- ./gradlew clean test
+          allurectl watch -- ./gradlew clean test
           export $( ./allurectl job-run env)
           printenv | grep TEST_
           printenv | grep ALLURE_

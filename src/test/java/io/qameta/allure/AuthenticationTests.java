@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 @Owner("egorivanov")
 public class AuthenticationTests {
     @Test
-    @AllureId("81")
+    @AllureId("IDIDID")
     @DisplayName("Successful auth with username and password")
     @Tags({@Tag("web"), @Tag("smoke"), @Tag("critical")})
     @Microservice("Authentication")

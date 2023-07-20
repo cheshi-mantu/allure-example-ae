@@ -11,4 +11,4 @@ public class AuthenticationTests {
     public void successfulAuthUserPassword() {
 
     }
-    }
+}

@@ -9,14 +9,15 @@ import static io.qameta.allure.Allure.step;
 
 @Feature("Authentication")
 @Owner("egorivanov")
+@Layer("web")
 public class AuthenticationTests {
     @Test
     @AllureId("IDIDID")
-    @DisplayName("Successful auth with username and password")
+    @DisplayName("Successful authentication with username and password")
     @Tags({@Tag("web"), @Tag("smoke"), @Tag("critical")})
-    @Microservice("Authentication")
-    @Story("Authentication via username and password")
-    public void successfulAuthUserPassword() {
+    @Microservice("uaa")
+    @Story("Built-in authentication tests")
+    public void shouldAuthWithUsernameAndPassword() {
             step("Open log-in page ", ()->{
                 Allure.attachment("Open page:", "https://testing.productname.org");
             });

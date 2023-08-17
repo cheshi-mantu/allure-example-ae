@@ -37,5 +37,4 @@ jobs:
       - run: |
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
           chmod +x ./allurectl
-      - run: ./allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
-      - run: ./allurectl watch -- ./gradlew test -Pbrowser=${BROWSER} -Ptest_host=${TESTING_HOST}
+      - run: ./allurectl watch -- ./gradlew test

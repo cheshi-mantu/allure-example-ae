@@ -14,6 +14,10 @@ parameters:
   TESTING_HOST:
     type: string
     default: "https://some.circleci.host"
+  ALLURE_USERNAME:
+    type: string
+    default: ""
+
 
 jobs:
   build:

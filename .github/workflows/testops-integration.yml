@@ -20,10 +20,6 @@ on:
         required: false
 
 env:
-#  ALLURE_ENDPOINT: https://testing.allure.aws.qameta.in
-#  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
-#  ALLURE_PROJECT_ID: ${{ secrets.ALLURE_PROJECT_ID }}
-  ALLURE_TESTPLAN_PATH: "./testplan.json"
   ALLURE_RESULTS: "build/allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
 
@@ -42,8 +38,6 @@ jobs:
           allure-endpoint: https://testing.allure.aws.qameta.in
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
-      - name: Prepare TestPlan
-        run: allurectl job-run plan --output-file ${ALLURE_TESTPLAN_PATH}
       - name: Build with Gradle
         run: |
           allurectl watch -- ./gradlew clean test

@@ -22,6 +22,7 @@ on:
 env:
   ALLURE_RESULTS: "build/allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  ALLURE_PROJECT_ID: 338
 
 jobs:
   all-tests:
@@ -37,7 +38,7 @@ jobs:
         with:
           allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}
-          allure-project-id: 338
+          allure-project-id: ${ALLURE_PROJECT_ID}
       - name: Build with Gradle
         run: |
           allurectl watch -- ./gradlew clean test

@@ -8,8 +8,4 @@ import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 
 public class AuthenticationTests {
-    @Test
-    public void successfulAuthUserPassword() {
-
-    }
 }

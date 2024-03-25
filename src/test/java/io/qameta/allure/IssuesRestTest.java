@@ -1,5 +1,7 @@
 package io.qameta.allure;
 
+import io.qameta.allure.model.Parameter;
+import io.qameta.allure.Param;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,8 +23,9 @@ public class IssuesRestTest {
     @Microservice("Repository")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("second-pipe")})
     @ParameterizedTest(name = "Close issue via api")
-    @ValueSource(strings = {"First Note", "Second Note"})
+    @ValueSource(strings = {"First Note", "Second Note", "Third Note", "Fourth note"})
     public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) String title) {
+//    public void shouldDeleteUserNote(@Param(mode = Parameter.Mode.) String title) {
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);
     }

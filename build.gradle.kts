@@ -8,14 +8,14 @@ version = version
 
 allure {
     report {
-        version.set("2.18.1")
+        version.set("2.26.0")
     }
     adapter {
         autoconfigure.set(true)
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
-                adapterVersion.set("2.18.1")
+                adapterVersion.set("2.26.0")
             }
         }
     }
@@ -46,7 +46,7 @@ repositories {
 
 dependencies {
     implementation("commons-io:commons-io:2.6")
-    implementation("io.qameta.allure:allure-java-commons:2.18.1")
+    implementation("io.qameta.allure:allure-java-commons:2.26.0")
     implementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
     implementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
     implementation("org.junit.jupiter:junit-jupiter-params:5.7.2")

@@ -25,7 +25,7 @@ public class IssuesRestTest {
 
     @Story("Dynamic excluded param")
     @Microservice("Repository")
-    @Tags({@Tag("web"), @Tag("regress"), @Tag("second-pipe")})
+    @Tags({@Tag("parameter"), @Tag("dynamic"), @Tag("showcase")})
     @ParameterizedTest(name = "should show dynamic parameter but ignore it in history ID calcs")
     @MethodSource("epochTimestamps")
     public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) long epochTimestamp) {

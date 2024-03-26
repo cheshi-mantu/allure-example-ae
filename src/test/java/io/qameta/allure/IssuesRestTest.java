@@ -28,7 +28,8 @@ public class IssuesRestTest {
     @Tags({@Tag("web"), @Tag("regress"), @Tag("second-pipe")})
     @ParameterizedTest(name = "Close issue via api")
     @MethodSource("epochTimestamps")
-    public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) long epochTimestamp) {
+    public void shouldDeleteUserNote(@Param(value = "HashOrSomething") long epochTimestamp) {
+//    public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) long epochTimestamp) {
 //    public void shouldDeleteUserNote(@Param(mode = Parameter.Mode.) String title) {
         Date date = new Date(epochTimestamp);
         String note = date.toString();

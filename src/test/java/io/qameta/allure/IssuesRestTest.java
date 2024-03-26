@@ -14,8 +14,8 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.parameter;
 
 @Layer("rest")
-@Owner("baev")
-@Feature("Issues")
+@Owner("egoriavanov")
+@Feature("TestsParameters")
 public class IssuesRestTest {
 
     private static final String OWNER = "allure-framework";
@@ -23,14 +23,12 @@ public class IssuesRestTest {
 
     private final RestSteps steps = new RestSteps();
 
-    @Story("Close existing issue")
+    @Story("Dynamic excluded param")
     @Microservice("Repository")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("second-pipe")})
-    @ParameterizedTest(name = "Close issue via api")
+    @ParameterizedTest(name = "should show dynamic parameter but ignore it in history ID calcs")
     @MethodSource("epochTimestamps")
-    public void shouldDeleteUserNote(@Param(value = "HashOrSomething") long epochTimestamp) {
-//    public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) long epochTimestamp) {
-//    public void shouldDeleteUserNote(@Param(mode = Parameter.Mode.) String title) {
+    public void shouldDeleteUserNote(@Param(value = "Title", excluded = true) long epochTimestamp) {
         Date date = new Date(epochTimestamp);
         String note = date.toString();
         steps.createIssueWithTitle(OWNER, REPO, note);
@@ -38,7 +36,7 @@ public class IssuesRestTest {
     }
     static Stream<Long> epochTimestamps() {
         long epochOne = System.currentTimeMillis();
-        long epochTwo = System.currentTimeMillis() + 1000000; // Adding 1000 seconds for the second timestamp
+        long epochTwo = System.currentTimeMillis() + 1000123;
         return Stream.of(epochOne, epochTwo);
     }
 

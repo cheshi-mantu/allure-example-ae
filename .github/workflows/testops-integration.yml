@@ -1,7 +1,6 @@
 name: gh-integration
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       TEST_ENDPOINT:

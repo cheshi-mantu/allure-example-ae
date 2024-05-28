@@ -32,7 +32,7 @@ jobs:
         with:
           java-version: 1.8
       - name: install and configure allurectl
-        uses: allure-framework/setup-allurectl@v1
+        uses: allure-framework/setup-allurectl@v1.0.0
         with:
           allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}

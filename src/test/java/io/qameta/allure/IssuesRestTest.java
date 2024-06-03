@@ -46,7 +46,7 @@ public class IssuesRestTest {
     @Tags({@Tag("parameter"), @Tag("dynamic"), @Tag("hidden")})
     @Description("@Param(value = \"Title\", mode = Parameter.Mode.HIDDEN \n allows having a dymanic parameter in test, that is hidden from UI and \n" +
             "is not used the history ID calculations")
-    @ParameterizedTest(name = "should show dynamic parameter but ignore it in history ID calculations")
+    @ParameterizedTest(name = "Dynamic parameter marked as hidden")
     @MethodSource("epochTimestamps")
     public void useCaseHiddenParameterTest(@Param(value = "Title", mode = Parameter.Mode.HIDDEN) long epochTimestamp) {
         Date date = new Date(epochTimestamp);

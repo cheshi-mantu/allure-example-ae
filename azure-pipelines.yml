@@ -27,7 +27,6 @@ steps:
       chmod +x ./allurectl
 
 - script: |
-    ./allurectl job-run plan --output-file $(ALLURE_TESTPLAN_PATH)
     ./allurectl watch -- ./gradlew clean test
     printenv | grep "ALLURE_"
     printenv | grep "AZURE_"
@@ -37,7 +36,6 @@ steps:
     ALLURE_ENDPOINT: $(ALLURE_ENDPOINT)
     ALLURE_PROJECT_ID: $(ALLURE_PROJECT_ID)
     ALLURE_TOKEN: $(ALLURE_TOKEN)
-    ALLURE_TESTPLAN_PATH: $(ALLURE_TESTPLAN_PATH)
     ALLURE_RESULTS: $(ALLURE_RESULTS)
     ALLURE_LAUNCH_NAME: "$(Build.DefinitionName)-$(Build.BuildNumber)"
     TEST_BRANCH: $(Build.SourceBranchName)

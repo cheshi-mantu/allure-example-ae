@@ -12,14 +12,15 @@ import static io.qameta.allure.Allure.step;
 @Layer("web")
 public class AuthenticationTests {
     @Test
-    @AllureId("IDIDID")
+    @AllureId("XXXXX")
     @DisplayName("Successful authentication with username and password")
     @Tags({@Tag("web"), @Tag("smoke"), @Tag("critical")})
-    @Microservice("uaa")
+    @Microservice("testops")
+    @JiraIssue("AE-13")
     @Story("Built-in authentication tests")
     public void shouldAuthWithUsernameAndPassword() {
             step("Open log-in page ", ()->{
-                Allure.attachment("Open page:", "https://testing.productname.org");
+                Allure.attachment("Open page:", "https://demo.testops.cloud");
             });
             step("Click log-in button ");
             step("Enter credentials ", () -> {

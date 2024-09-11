@@ -24,10 +24,10 @@ public class IssuesRestTest {
     @Tags({@Tag("api"), @Tag("smoke")})
     @ParameterizedTest(name = "Create issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldCreateUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
+    public void shouldCreateUserNote(@Param(value = "Title") String title) {
+//        parameter("owner", OWNER);
+//        parameter("repo", REPO);
+//        parameter("title", title);
 
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.shouldSeeIssueWithTitle(OWNER, REPO, title);
@@ -40,10 +40,10 @@ public class IssuesRestTest {
     @JiraIssues({@JiraIssue("AE-2")})
     @ParameterizedTest(name = "Close issue via api")
     @ValueSource(strings = {"First Note", "Second Note"})
-    public void shouldDeleteUserNote(String title) {
-        parameter("owner", OWNER);
-        parameter("repo", REPO);
-        parameter("title", title);
+    public void shouldDeleteUserNote(@Param(value = "Title") String title) {
+//        parameter("owner", OWNER);
+//        parameter("repo", REPO);
+//        parameter("title", title);
 
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);

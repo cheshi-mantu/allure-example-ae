@@ -19,6 +19,7 @@ public class IssuesRestTest {
     private final RestSteps steps = new RestSteps();
 
     @AllureId("12378")
+    @DisplayName("Create Issue via API")
     @ParameterizedTest(name = "({argumentsWithNames})")
     @Story("Create new issue")
     @Microservice("Billing")
@@ -31,6 +32,7 @@ public class IssuesRestTest {
     }
 
     @AllureId("269231")
+    @DisplayName("Close Issue via API")
     @ParameterizedTest(name = "({argumentsWithNames})")
     @Story("Close existing issue")
     @Microservice("Repository")

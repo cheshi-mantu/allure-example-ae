@@ -59,6 +59,21 @@ public class IssuesRestTest {
         steps.closeIssueWithTitle(OWNER, REPO, note);
     }
 
+    @Story("Dynamic parameter")
+    @DisplayName("Parameterised test with dynamic parameter")
+    @Microservice("Report")
+    @Tags({@Tag("parameter"), @Tag("dynamic")})
+    @Description("If reran this test will leave 'In progress' test results in Allure TestOps launch.\n This parameter " +
+            "is dynamic and breaks the calculation of historyId.")
+    @ParameterizedTest(name = "({argumentsWithNames})")
+    @MethodSource("epochTimestamps")
+    public void shouldGenerateInProgressTestResultsIfRestarted(@Param(value = "HashOrSomething") long epochTimestamp) {
+        Date date = new Date(epochTimestamp);
+        String note = date.toString();
+        steps.createIssueWithTitle(OWNER, REPO, note);
+        steps.closeIssueWithTitle(OWNER, REPO, note);
+    }
+
     static Stream<Long> epochTimestamps() {
         long epochOne = System.currentTimeMillis();
         long epochTwo = System.currentTimeMillis() + 1000123;

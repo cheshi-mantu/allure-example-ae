@@ -29,7 +29,6 @@ public class PullRequestsWebTest {
 
     @Test
     @AllureId("280121")
-    @TM4J("AE-T6")
     @Microservice("Billing")
     @Story("Create new pull request")
     @Tags({@Tag("web"), @Tag("regress"), @Tag("smoke")})
@@ -43,7 +42,6 @@ public class PullRequestsWebTest {
 
     @Test
     @AllureId("351233")
-    @TM4J("AE-T7")
     @JiraIssue("AE-4")
     @Microservice("Repository")
     @Story("Close existing pull request")

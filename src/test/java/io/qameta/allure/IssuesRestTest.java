@@ -1,5 +1,6 @@
 package io.qameta.allure;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -22,7 +23,8 @@ public class IssuesRestTest {
     @Microservice("Billing")
     @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("api"), @Tag("smoke")})
-    @ParameterizedTest(name = "Create issue via api")
+//    @DisplayName("Create issue via api")
+    @ParameterizedTest(name = "{displayName} ({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldCreateUserNote(@Param(value = "Title") String title) {
 //        parameter("owner", OWNER);
@@ -38,7 +40,9 @@ public class IssuesRestTest {
     @Microservice("Repository")
     @Tags({@Tag("api"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-2")})
-    @ParameterizedTest(name = "Close issue via api")
+//    @DisplayName("Close issue via api")
+//    @ParameterizedTest(name = "Close issue via api")
+    @ParameterizedTest(name = "{displayName} ({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldDeleteUserNote(@Param(value = "Title") String title) {
 //        parameter("owner", OWNER);

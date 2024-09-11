@@ -29,7 +29,6 @@ public class IssuesWebTest {
 
     @Test
     @AllureId("282761")
-    @TM4J("AE-T3")
     @Microservice("Billing")
     @Story("Create new issue")
     @JiraIssues({@JiraIssue("AE-1")})
@@ -43,7 +42,6 @@ public class IssuesWebTest {
 
     @Test
     @AllureId("12382")
-    @TM4J("AE-T5")
     @Microservice("Repository")
     @Story("Close existing issue")
     @Tags({@Tag("web"), @Tag("regress")})
@@ -59,7 +57,6 @@ public class IssuesWebTest {
 
     @Test
     @AllureId("12380")
-    @TM4J("AE-T4")
     @Microservice("Repository")
     @Story("Create new issue")
     @Tags({@Tag("web"), @Tag("regress")})

@@ -23,14 +23,10 @@ public class IssuesRestTest {
     @Microservice("Billing")
     @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("api"), @Tag("smoke")})
-//    @DisplayName("Create issue via api")
-    @ParameterizedTest(name = "{displayName} ({argumentsWithNames})")
+    @DisplayName("Create issue via api")
+    @ParameterizedTest(name = "({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldCreateUserNote(@Param(value = "Title") String title) {
-//        parameter("owner", OWNER);
-//        parameter("repo", REPO);
-//        parameter("title", title);
-
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.shouldSeeIssueWithTitle(OWNER, REPO, title);
     }
@@ -40,15 +36,10 @@ public class IssuesRestTest {
     @Microservice("Repository")
     @Tags({@Tag("api"), @Tag("regress")})
     @JiraIssues({@JiraIssue("AE-2")})
-//    @DisplayName("Close issue via api")
-//    @ParameterizedTest(name = "Close issue via api")
-    @ParameterizedTest(name = "{displayName} ({argumentsWithNames})")
+    @DisplayName("Close issue via api")
+    @ParameterizedTest(name = "({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})
     public void shouldDeleteUserNote(@Param(value = "Title") String title) {
-//        parameter("owner", OWNER);
-//        parameter("repo", REPO);
-//        parameter("title", title);
-
         steps.createIssueWithTitle(OWNER, REPO, title);
         steps.closeIssueWithTitle(OWNER, REPO, title);
     }

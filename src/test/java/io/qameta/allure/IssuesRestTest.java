@@ -33,7 +33,7 @@ public class IssuesRestTest {
 
 
     @Story("Parameterized test with dynamic parameter marked as excluded")
-    @DisplayName("{arameterised test with dynamic parameter")
+    @DisplayName("Parameterised test with dynamic parameter")
     @Tags({@Tag("parameter"), @Tag("dynamic"), @Tag("excluded")})
     @ParameterizedTest(name = "({argumentsWithNames})")
     @Description("@Param(value = \"Title\", excluded = true \n allows having a dynamic parameter which is not being used in hashes to get history ID")

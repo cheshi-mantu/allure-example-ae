@@ -50,6 +50,7 @@ jobs:
       - name: Get ALLURE_ environments
         run: | 
           printenv | grep ALLURE_
+          printenv | grep TEST_
       - name: Get GITHUB_ environments
         run: | 
           printenv | grep GITHUB_

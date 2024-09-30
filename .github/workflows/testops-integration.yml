@@ -42,13 +42,13 @@ jobs:
         run: |
           allurectl watch -- ./gradlew clean test
           export $( ./allurectl job-run env)
-          printenv | grep TEST_
           printenv | grep ALLURE_
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
       - name: Get ALLURE_ environments
         run: | 
+          printenv | grep TEST_
           printenv | grep ALLURE_
           printenv | grep TEST_
       - name: Get GITHUB_ environments

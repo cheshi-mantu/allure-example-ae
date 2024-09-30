@@ -1,4 +1,4 @@
-name: gh-integration
+name: GitHub integration testops
 
 on:
   workflow_dispatch:

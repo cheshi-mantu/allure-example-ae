@@ -41,7 +41,7 @@ jobs:
       - name: Build with Gradle
         run: |
           allurectl watch -- ./gradlew clean test
-          export $( ./allurectl job-run env)
+          export $( allurectl job-run env)
           printenv | grep ALLURE_
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}

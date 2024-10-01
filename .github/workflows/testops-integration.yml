@@ -61,4 +61,5 @@ jobs:
           ls -lah ~/ || true
           ls -lah ~/.allure || true
           cat ~/.allure/testplan.json || true
+          allurectl ci env
           

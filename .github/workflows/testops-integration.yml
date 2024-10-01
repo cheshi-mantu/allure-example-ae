@@ -56,3 +56,9 @@ jobs:
           printenv | grep GITHUB_
       - name: List results
         run: ls -la ${ALLURE_RESULTS}
+      - name: List allurectl dir
+        run: |
+          ls -lah ~/ || true
+          ls -lah ~/.allure || true
+          cat ~/.allure/testplan.json || true
+          

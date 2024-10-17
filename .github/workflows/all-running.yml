@@ -36,7 +36,7 @@ jobs:
           allure-project-id: 276
           allurectl-version: 2.15.1
       
-      - name: Create testplan.json
+          - name: Create testplan.json
         shell: bash
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then

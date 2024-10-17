@@ -32,11 +32,11 @@ jobs:
         uses: allure-framework/setup-allurectl@v1.0.0
         with:
           allure-endpoint: https://demo.testops.cloud
-          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-token: ${{ secrets.TESTING_ALLURE_TOKEN }}
           allure-project-id: 276
           allurectl-version: 2.15.1
       
-          - name: Create testplan.json
+      - name: Create testplan.json
         shell: bash
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then

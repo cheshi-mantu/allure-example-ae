@@ -13,7 +13,6 @@ on:
 env:
   ALLURE_JOB_RUN_ID: ${{ inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_RESULTS: build/allure-results
-  ALLURE_TESTPLAN_PATH: ./testplan.json
 
 jobs:
   regression-test:
@@ -39,6 +38,7 @@ jobs:
         shell: bash
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
+            export ALLURE_TESTPLAN_PATH=./testplan.json
             echo "Regression test started from github creating regression testplan.json"
             allurectl test-case plan -q "testPlan=7477" --output-file ${ALLURE_TESTPLAN_PATH}
          else 

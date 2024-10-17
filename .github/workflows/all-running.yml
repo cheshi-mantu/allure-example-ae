@@ -38,13 +38,13 @@ jobs:
         shell: bash
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
-#            ALLURE_TESTPLAN_PATH=./testplan.json
             echo "Regression test started from github creating regression testplan.json"
             allurectl test-case plan -q "testPlan=7477" --output-file ${ALLURE_TESTPLAN_PATH}
          else 
            echo "Regression test started from AllureOps skipping creating testplan.json"
          fi
-      
+        env:
+          ALLURE_TESTPLAN_PATH: ./testplan.json
       - name: Run tests
         id: test
         run: |

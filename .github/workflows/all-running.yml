@@ -11,7 +11,6 @@ on:
         required: false
 
 env:
-  ALLURE_ENDPOINT: https://testing.testops.cloud
   ALLURE_JOB_RUN_ID: ${{ inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_RESULTS: build/allure-results
   ALLURE_TESTPLAN_PATH: ./testplan.json
@@ -31,7 +30,7 @@ jobs:
       - name: install and configure allurectl
         uses: allure-framework/setup-allurectl@v1.0.0
         with:
-          allure-endpoint: https://demo.testops.cloud
+          allure-endpoint: https://testing.testops.cloud
           allure-token: ${{ secrets.TESTING_ALLURE_TOKEN }}
           allure-project-id: 276
           allurectl-version: 2.15.1
@@ -41,7 +40,7 @@ jobs:
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
             echo "Regression test started from github creating regression testplan.json"
-            allurectl test-case plan -q "testPlan=637" --output-file ${ALLURE_TESTPLAN_PATH}
+            allurectl test-case plan -q "testPlan=7477" --output-file ${ALLURE_TESTPLAN_PATH}
          else 
            echo "Regression test started from AllureOps skipping creating testplan.json"
          fi

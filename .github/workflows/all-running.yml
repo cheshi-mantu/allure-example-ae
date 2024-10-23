@@ -1,4 +1,4 @@
-name: Regression Test
+name: ww 7474
 
 on:
   workflow_dispatch:
@@ -39,12 +39,10 @@ jobs:
         run: | 
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
             echo "Regression test started from github creating regression testplan.json"
-            allurectl test-case plan -q "testPlan=7477" --output-file ${ALLURE_TESTPLAN_PATH}
+            allurectl test-case plan -q "testPlan=7477" --output-file ./testplan.json
          else 
            echo "Regression test started from AllureOps skipping creating testplan.json"
          fi
-        env:
-          ALLURE_TESTPLAN_PATH: ./testplan.json
       - name: Run tests
         id: test
         run: |

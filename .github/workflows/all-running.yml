@@ -34,18 +34,23 @@ jobs:
           allure-project-id: 276
           allurectl-version: 2.15.1
       
-      - name: Create testplan.json
+      - name: Triggered from GH dispatch
         shell: bash
+        id: test-dispatch
+        if: ${{ inputs.ALLURE_JOB_RUN_ID == '' }}
         run: | 
-         if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
             echo "Regression test started from github creating regression testplan.json"
-            allurectl test-case plan -q "testPlan=7477" --output-file ./testplan.json
+            allurectl test-case plan -q "testPlan=7477" --output-file ${ALLURE_TESTPLAN_PATH}
             cat ./testplan.json || true
-         else 
-           echo "Regression test started from AllureOps skipping creating testplan.json"
-         fi
-      - name: Run tests
-        id: test
+            allurectl watch -- ./gradlew clean test
+            printenv | grep GITHUB
+            printenv | grep ALLURE_
+        env:
+          ALLURE_TESTPLAN_PATH: ./testplan.json
+          ALLURE_RESULTS: ${{ env.ALLURE_RESULTS }}
+      - name: Triggered from Allure TestOps
+        id: test-ato
+        if: ${{ inputs.ALLURE_JOB_RUN_ID != '' }}
         run: |
          allurectl watch -- ./gradlew clean test
          printenv | grep GITHUB

@@ -40,7 +40,7 @@ jobs:
          if [ -z "${{ inputs.ALLURE_JOB_RUN_ID }}" ]; then
             echo "Regression test started from github creating regression testplan.json"
             allurectl test-case plan -q "testPlan=7477" --output-file ./testplan.json
-            cat ./testplan.json "" true
+            cat ./testplan.json || true
          else 
            echo "Regression test started from AllureOps skipping creating testplan.json"
          fi

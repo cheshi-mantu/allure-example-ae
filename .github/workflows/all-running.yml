@@ -40,7 +40,7 @@ jobs:
         if: ${{ inputs.ALLURE_JOB_RUN_ID == '' }}
         run: | 
             echo "Regression test started from github creating regression testplan.json"
-            allurectl test-case plan -q "testPlan=7611" --output-file ${ALLURE_TESTPLAN_PATH}
+            allurectl test-case plan -q "tag in ["regress"]" --output-file ${ALLURE_TESTPLAN_PATH}
             cat ./testplan.json || true
             allurectl watch -- ./gradlew clean test
             printenv | grep GITHUB

@@ -1,9 +1,6 @@
 package io.qameta.allure;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static io.qameta.allure.Allure.step;
 
@@ -11,13 +8,7 @@ import static io.qameta.allure.Allure.step;
 @Owner("egorivanov")
 @Layer("web")
 public class AuthenticationTests {
-    @Test
-    @AllureId("XXXXX")
-    @DisplayName("Successful authentication with username and password")
-    @Tags({@Tag("web"), @Tag("smoke"), @Tag("critical")})
-    @Microservice("testops")
-    @JiraIssue("AE-13")
-    @Story("Built-in authentication tests")
+    @BeforeEach
     public void shouldAuthWithUsernameAndPassword() {
             step("Open log-in page ", ()->{
                 Allure.attachment("Open page:", "https://demo.testops.cloud");
@@ -38,5 +29,28 @@ public class AuthenticationTests {
                 });
             });
         }
+    @Test
+    @AllureId("XXXXX")
+    @DisplayName("Successful authentication with username and password")
+    @Tags({@Tag("web"), @Tag("smoke"), @Tag("critical")})
+    @Microservice("testops")
+    @JiraIssue("AE-22")
+    @JiraIssue("AE-13")
+    @Story("Built-in authentication tests")
+    public void shouldCreateProjectForAuthenticatedUser() {
+        step("Click Create Project Button", ()->{
+        });
+        step("Add name for the project", () -> {
+            step("Generate random string");
+            step("Paste random string content to the project creation form field with ID = name");
+        });
+        step("Click Submit button", () -> {        });
+        step("Check creation of the project is successful", () -> {
+            step("User is forwarded to New project with generated name", ()->{
+                step("User sees the header Test cases");
+            });
+        });
+    }
+
 
 }

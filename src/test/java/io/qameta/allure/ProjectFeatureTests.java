@@ -26,14 +26,17 @@ public class ProjectFeatureTests {
             step("Click log-in button ");
             step("Enter credentials ", () -> {
                 step("enter valid email ", ()->{
+                    Thread.sleep(404);
                     Allure.attachment("email:", "valid@email.com");
                 });
                 step("enter valid password ", ()->{
+                    Thread.sleep(500);
                     Allure.attachment("password:", "validP@ssword");
                 });
                 step("click ok ");
             });
             step("Check log-in is successful ", () -> {
+                Thread.sleep(945);
                 step("`User's avatar must be visible in the side menu", ()->{
                     step("Check <div> related to user menu is visible");
                 });

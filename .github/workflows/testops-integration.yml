@@ -38,28 +38,13 @@ jobs:
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 338
           allurectl-version: 2.15.1
-      - name: Build with Gradle
+      - name: Build with Gradle and upload test results to TestOps
         run: |
           allurectl watch -- ./gradlew clean test
           export $( allurectl job-run env)
           printenv | grep ALLURE_
+          printenv | grep TEST_
         env:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
-      - name: Get ALLURE_ environments
-        run: | 
-          printenv | grep TEST_
-          printenv | grep ALLURE_
-          printenv | grep TEST_
-      - name: Get GITHUB_ environments
-        run: | 
-          printenv | grep GITHUB_
-      - name: List results
-        run: ls -la ${ALLURE_RESULTS}
-      - name: List allurectl dir
-        run: |
-          ls -lah ~/ || true
-          ls -lah ~/.allure || true
-          cat ~/.allure/testplan.json || true
-          allurectl ci env
           

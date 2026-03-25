@@ -49,6 +49,10 @@ repositories {
     mavenLocal()
 }
 
+configurations.named("allureAspectjWeaverAgent") {
+    resolutionStrategy.force("org.aspectj:aspectjweaver:1.9.22")
+}
+
 dependencies {
     implementation("commons-io:commons-io:2.6")
     implementation("io.qameta.allure:allure-java-commons:2.28.0")

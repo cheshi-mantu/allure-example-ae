@@ -34,7 +34,7 @@ jobs:
           java-version: 17
           distribution: temurin
       - name: install and configure allurectl
-        uses: allure-framework/setup-allurectl@v1.0.0
+        uses: allure-framework/setup-allurectl@v1.0.3
         with:
           allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}

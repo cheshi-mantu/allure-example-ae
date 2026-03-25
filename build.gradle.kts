@@ -24,8 +24,8 @@ allure {
 }
 
 tasks.withType(JavaCompile::class) {
-    sourceCompatibility = "${JavaVersion.VERSION_1_8}"
-    targetCompatibility = "${JavaVersion.VERSION_1_8}"
+    sourceCompatibility = "${JavaVersion.VERSION_21}"
+    targetCompatibility = "${JavaVersion.VERSION_21}"
     options.encoding = "UTF-8"
 }
 
@@ -47,6 +47,14 @@ tasks.withType(Test::class) {
 repositories {
     mavenCentral()
     mavenLocal()
+}
+
+configurations.named("allureAspectjWeaverAgent") {
+    resolutionStrategy.force("org.aspectj:aspectjweaver:1.9.22")
+}
+
+configurations.named("allureAspectjWeaverAgent") {
+    resolutionStrategy.force("org.aspectj:aspectjweaver:1.9.22")
 }
 
 dependencies {

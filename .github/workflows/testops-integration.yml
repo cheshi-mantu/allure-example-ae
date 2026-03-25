@@ -43,7 +43,7 @@ jobs:
       - name: Build with Gradle and upload test results to TestOps
         run: |
           allurectl watch -- ./gradlew clean test
-          export $( allurectl job-run env)
+          export $(allurectl job-run env)
           printenv | grep ALLURE_
           printenv | grep TEST_
         env:

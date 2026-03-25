@@ -1,0 +1,76 @@
+---- AspectJ Properties ---
+AspectJ Compiler 1.9.5 built on Thursday Nov 28, 2019 at 11:28:53 PST
+---- Dump Properties ---
+Dump file: ajcore.20260325.113249.872.txt
+Dump reason: org.aspectj.weaver.BCException
+Dump on exception: true
+Dump at exit condition: abort
+---- Exception Information ---
+---- System Properties ---
+java.specification.version=21
+sun.jnu.encoding=UTF-8
+org.gradle.test.worker=2
+java.class.path=/Users/gogi/.gradle/caches/8.8/workerMain/gradle-worker.jar:/Users/gogi/code/allure-example-ae/build/classes/java/test:/Users/gogi/code/allure-example-ae/build/resources/test:/Users/gogi/code/allure-example-ae/build/classes/java/main:/Users/gogi/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.6/815893df5f31da2ece4040fe0a12fd44b577afaf/commons-io-2.6.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.8.2/c598b4328d2f397194d11df3b1648d68d7d990e3/junit-jupiter-engine-5.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/1.8.2/c334fcee82b81311ab5c426ec2d52d467c8d0b28/junit-platform-launcher-1.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.8.2/b737de09f19864bd136805c84df7999a142fec29/junit-platform-engine-1.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.8.2/32c8b8617c1342376fd5af2053da6410d8866861/junit-platform-commons-1.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.8.2/ddeafe92fc263f895bfb73ffeca7fd56e23c2cce/junit-jupiter-params-5.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.2/4c21029217adf07e4c0d0c5e192b6bf610c94bdc/junit-jupiter-api-5.8.2.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-junit5/2.18.1/3713fba1b0ae91fe35a8a308ab51d32f6244af1c/allure-junit5-2.18.1.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-junit-platform/2.18.1/fc99f08d9f22eac37e807298eff05428758f40e3/allure-junit-platform-2.18.1.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-test-filter/2.18.1/e1b2de248c3562c7d818e9d9be6bf38112dc282d/allure-test-filter-2.18.1.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-java-commons/2.28.0/25b916f0b34d451bd74e4eaf3d7a55fd90265d95/allure-java-commons-2.28.0.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.13/80229737f704b121a318bba5d5deacbcf395bc77/slf4j-api-2.0.13.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/io.qameta.allure/allure-model/2.28.0/e3ba5b9bb7bded1fc15b7a988bd2a9d1f76f04d0/allure-model-2.28.0.jar:/Users/gogi/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.2.0/28c11eb91f9b6d8e200631d46e20a7f407f2a046/opentest4j-1.2.0.jar
+java.vm.vendor=Amazon.com Inc.
+sun.arch.data.model=64
+user.variant=
+java.vendor.url=https://aws.amazon.com/corretto/
+user.timezone=Europe/Madrid
+java.vm.specification.version=21
+os.name=Mac OS X
+user.country=GB
+sun.java.launcher=SUN_STANDARD
+sun.boot.library.path=/Users/gogi/.sdkman/candidates/java/21.0.9-amzn/lib
+sun.java.command=worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 2'
+http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+jdk.debug=release
+allure.results.directory=/Users/gogi/code/allure-example-ae/build/allure-results
+sun.cpu.endian=little
+user.home=/Users/gogi
+user.language=en
+java.specification.vendor=Oracle Corporation
+java.version.date=2025-10-21
+java.home=/Users/gogi/.sdkman/candidates/java/21.0.9-amzn
+file.separator=/
+java.vm.compressedOopsMode=Zero based
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+apple.awt.application.name=GradleWorkerMain
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.runtime.version=21.0.9+10-LTS
+user.name=gogi
+stdout.encoding=UTF-8
+path.separator=:
+os.version=26.3.1
+java.runtime.name=OpenJDK Runtime Environment
+file.encoding=UTF-8
+junit.jupiter.execution.parallel.config.strategy=dynamic
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vendor.version=Corretto-21.0.9.10.1
+junit.jupiter.execution.parallel.enabled=true
+java.vendor.url.bug=https://github.com/corretto/corretto-21/issues/
+java.io.tmpdir=/var/folders/2p/y9ktc22x5yjdzmt0ntwf_bmr0000gn/T/
+java.version=21.0.9
+user.dir=/Users/gogi/code/allure-example-ae
+os.arch=aarch64
+java.vm.specification.name=Java Virtual Machine Specification
+org.gradle.internal.worker.tmpdir=/Users/gogi/code/allure-example-ae/build/tmp/test/work
+native.encoding=UTF-8
+java.library.path=/Users/gogi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+junit.jupiter.extensions.autodetection.enabled=true
+java.vm.info=mixed mode, sharing
+stderr.encoding=UTF-8
+java.vendor=Amazon.com Inc.
+java.vm.version=21.0.9+10-LTS
+sun.io.unicode.encoding=UnicodeBig
+socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.class.version=65.0
+---- Command Line ---
+Empty
+---- Full Classpath ---
+Empty
+---- Compiler Messages ---
+Empty

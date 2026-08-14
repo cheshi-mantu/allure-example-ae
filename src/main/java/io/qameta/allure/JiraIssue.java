@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Repeatable(JiraIssues.class)
-@LabelAnnotation(name = "jira")
+@LabelAnnotation(name = "gitlab")
 public @interface JiraIssue {
 
     String value();

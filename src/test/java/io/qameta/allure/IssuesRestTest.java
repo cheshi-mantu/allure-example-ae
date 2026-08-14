@@ -18,10 +18,9 @@ public class IssuesRestTest {
 
     private final RestSteps steps = new RestSteps();
 
-    @TM4J("AE-T1")
     @Story("Create new issue")
     @Microservice("Billing")
-    @JiraIssues({@JiraIssue("AE-1")})
+    @JiraIssues({@JiraIssue("1")})
     @Tags({@Tag("api"), @Tag("smoke")})
     @DisplayName("Create issue via api")
     @ParameterizedTest(name = "({argumentsWithNames})")
@@ -31,11 +30,10 @@ public class IssuesRestTest {
         steps.shouldSeeIssueWithTitle(OWNER, REPO, title);
     }
 
-    @TM4J("AE-T2")
     @Story("Close existing issue")
     @Microservice("Repository")
     @Tags({@Tag("api"), @Tag("regress")})
-    @JiraIssues({@JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("2")})
     @DisplayName("Close issue via api")
     @ParameterizedTest(name = "({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})

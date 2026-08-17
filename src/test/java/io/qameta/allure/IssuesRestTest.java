@@ -20,7 +20,7 @@ public class IssuesRestTest {
 
     @Story("Create new issue")
     @Microservice("Billing")
-    @JiraIssues({@JiraIssue("1")})
+    @JiraIssues({@JiraIssue("cheshimantu/allure-example-ae#1")})
     @Tags({@Tag("api"), @Tag("smoke")})
     @DisplayName("Create issue via api")
     @ParameterizedTest(name = "({argumentsWithNames})")
@@ -33,7 +33,7 @@ public class IssuesRestTest {
     @Story("Close existing issue")
     @Microservice("Repository")
     @Tags({@Tag("api"), @Tag("regress")})
-    @JiraIssues({@JiraIssue("2")})
+    @JiraIssues({@JiraIssue("cheshimantu/allure-example-ae#2")})
     @DisplayName("Close issue via api")
     @ParameterizedTest(name = "({argumentsWithNames})")
     @ValueSource(strings = {"First Note", "Second Note"})

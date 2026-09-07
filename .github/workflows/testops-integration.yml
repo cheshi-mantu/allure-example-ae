@@ -11,6 +11,18 @@ on:
         description: "Browser for tests"
         required: true
         default: chrome
+      TESTS_BU:
+        description: "Select the business unit"
+        required: true
+        type: choice
+        options:
+          - NL
+          - UK
+          - FR
+          - DE
+          - RO
+          - ALL
+        default: ALL
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
         required: false

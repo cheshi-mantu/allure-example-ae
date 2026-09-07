@@ -13,3 +13,5 @@ build
 /.vscode/
 .DS_Store
 /allure-report/
+node_modules/
+.claude/

@@ -36,6 +36,7 @@ on:
 env:
   ALLURE_RESULTS: "build/allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  ALLURE_LAUNCH_TAGS: "github, java, gradle, junit5, ${{ github.event.type }}"
 
 jobs:
   all-tests:
@@ -54,7 +55,7 @@ jobs:
           allure-endpoint: https://demo.testops.cloud
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: 338
-          allurectl-version: 2.18.0
+          allurectl-version: 2.22.1
       - name: Build with Gradle and upload test results to TestOps
         run: |
           allurectl watch -- ./gradlew clean test

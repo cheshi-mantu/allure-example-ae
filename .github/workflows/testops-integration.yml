@@ -24,7 +24,7 @@ on:
           - ALL
         default: ALL
       TRACKER_TASK_ID:
-        description: "Tracker task ID. Leave blank."
+        description: "Tracker task ID. Leave blank. Or AE-5 for example"
         required: false
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."

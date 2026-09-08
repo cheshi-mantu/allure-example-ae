@@ -23,6 +23,9 @@ on:
           - RO
           - ALL
         default: ALL
+      TRACKER_TASK_ID:
+        description: "Tracker task ID. Leave blank."
+        required: false
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID service parameter. Leave blank."
         required: false
@@ -55,6 +58,11 @@ jobs:
       - name: Build with Gradle and upload test results to TestOps
         run: |
           allurectl watch -- ./gradlew clean test
+          if [ -n "$TRACKER_TASK_ID" ]; then
+            allurectl launch add-issue --current-launch --integration-id 747 --issue-keys "$TRACKER_TASK_ID"
+          else
+            echo "no task added, skipping"
+          fi
           export $(allurectl job-run env)
           printenv | grep ALLURE_
           printenv | grep TEST_
@@ -62,3 +70,4 @@ jobs:
           TEST_ENDPOINT: ${{ github.event.inputs.TEST_ENDPOINT }}
           TEST_BROWSER: ${{ github.event.inputs.TEST_BROWSER }}
           TESTS_BU: ${{ github.event.inputs.TESTS_BU }}
+          TRACKER_TASK_ID: ${{ github.event.inputs.TRACKER_TASK_ID }}

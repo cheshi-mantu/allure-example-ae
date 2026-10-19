@@ -36,4 +36,4 @@ jobs:
       - run: |
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
           chmod +x ./allurectl
-      - run: ./allurectl watch -- ./gradlew test
+      - run: ./allurectl watch -- ./gradlew clean test

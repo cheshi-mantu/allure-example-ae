@@ -30,6 +30,8 @@ jobs:
       TESTING_HOST: << pipeline.parameters.TESTING_HOST >>
       BROWSER: << pipeline.parameters.BROWSER >>
       ALLURE_LAUNCH_TAGS: "regular, circle"
+      ALLURE_ENDPOINT: https://testing.qameta.in
+      ALLURE_PROJECT_ID: 276
     steps:
       - checkout
       - run: printenv
